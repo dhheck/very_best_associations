@@ -57,6 +57,7 @@ Rails.application.routes.draw do
 
   # READ
   get "/dishes", :controller => "dishes", :action => "index"
+  get "", :controller => "dishes", :action => "index"
   get "/dishes/:id", :controller => "dishes", :action => "show"
 
   # UPDATE

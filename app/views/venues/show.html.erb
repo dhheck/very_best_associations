@@ -12,7 +12,20 @@
       <dd><%= @venue.address %></dd>
 
       <dt>Neighborhood</dt>
-      <dd><%= @venue.neighborhood_id %></dd>
+      <dd><%= @venue.neighborhood.name %></dd>
+
+      <dt>Favorites</dt>
+      <dd>
+      <ul class="list-group">
+      <% @venue.favorites.each do |fave| %>
+          <li class="list-group-item">
+            <a href="/venues/<%= fave.dish.id %>"><%= fave.dish.name %></a>
+            by
+            <a href="/venues/<%= fave.user.id %>"><%= fave.user.username %></a>
+          </li>
+      <% end %>
+        </ul>
+      </dd>
 
     </dl>
 

@@ -9,8 +9,20 @@
       <dd><%= @dish.name %></dd>
 
       <dt>Cuisine</dt>
-      <dd><%= @dish.cuisine_id %></dd>
+      <dd><%= @dish.cuisine.name %></dd>
 
+      <dt>Favorites</dt>
+      <dd>
+      <ul class="list-group">
+      <% @dish.favorites.each do |fave| %>
+          <li class="list-group-item">
+            <a href="/venues/<%= fave.venue.id %>"><%= fave.venue.name %></a>
+            by
+            <a href="/venues/<%= fave.user.id %>"><%= fave.user.username %></a>
+          </li>
+      <% end %>
+        </ul>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">
